@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin id="cordova-plugin-epson-tm-printer" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+    <name>Epson TM Printer</name>
+    <description>A simple Cordova plugin for printing receipts from an Epson TM printer.</description>
+    <author>Kris Torres</author>
+    <keywords>cordova, epson, epos, printer, receipt, ios</keywords>
+    <license>MIT</license>
+    <js-module name="EpsonTMPrinter" src="www/epson-tm-printer.js">
+        <clobbers target="epson.printer" />
+    </js-module>
+</plugin>
