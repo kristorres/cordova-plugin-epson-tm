@@ -5,8 +5,11 @@
     <author>Kris Torres</author>
     <keywords>cordova, epson, epos, printer, receipt, ios</keywords>
     <license>MIT</license>
-    <js-module name="EpsonTMPrinter" src="www/epson-tm-printer.js">
-        <clobbers target="epson.printer" />
+    <js-module name="API" src="www/api.js">
+        <clobbers target="epos.epson" />
+    </js-module>
+    <js-module name="PrinterSeries" src="www/printer-series.js">
+        <clobbers target="Epson.TM" />
     </js-module>
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
