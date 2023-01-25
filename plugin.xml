@@ -8,4 +8,16 @@
     <js-module name="EpsonTMPrinter" src="www/epson-tm-printer.js">
         <clobbers target="epson.printer" />
     </js-module>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="EpsonTMPrinterService">
+                <param name="ios-package" value="EpsonTMPrinterService" />
+            </feature>
+        </config-file>
+        <framework src="ExternalAccessory.framework" />
+        <framework src="libxml2.tbd" />
+        <source-file src="src/ios/libepos2.a" framework="true" />
+        <header-file src="src/ios/ePOS2.h" />
+        <dependency id="cordova-plugin-add-swift-support" version="2.0.2" />
+    </platform>
 </plugin>
