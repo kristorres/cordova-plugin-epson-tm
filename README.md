@@ -1,2 +1,2 @@
-Epson TM Printer
-================
+Epson TM Printer Service
+========================

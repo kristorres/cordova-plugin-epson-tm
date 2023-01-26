@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<plugin id="cordova-plugin-epson-tm-printer" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0">
-    <name>Epson TM Printer</name>
+<plugin id="cordova-plugin-epson-tm" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+    <name>Epson TM Printer Service</name>
     <description>A simple Cordova plugin for printing receipts from an Epson TM printer.</description>
     <author>Kris Torres</author>
     <keywords>cordova, epson, epos, printer, receipt, ios</keywords>
     <license>MIT</license>
-    <js-module name="API" src="www/api.js">
-        <clobbers target="epos.epson" />
-    </js-module>
-    <js-module name="PrinterSeries" src="www/printer-series.js">
-        <clobbers target="Epson.TM" />
+    <js-module name="PrinterService" src="www/epson-tm.js">
+        <clobbers target="EpsonTM" />
     </js-module>
     <platform name="ios">
         <config-file target="config.xml" parent="/*">

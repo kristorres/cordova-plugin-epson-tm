@@ -1,5 +1,5 @@
 {
-  "name": "cordova-plugin-epson-tm-printer",
+  "name": "cordova-plugin-epson-tm",
   "description": "A simple Cordova plugin for printing receipts from an Epson TM printer.",
   "version": "0.1.0",
   "author": {
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kristorres/cordova-plugin-epson-tm-printer.git"
+    "url": "https://github.com/kristorres/cordova-plugin-epson-tm.git"
   },
   "keywords": [
     "ecosystem:cordova",
