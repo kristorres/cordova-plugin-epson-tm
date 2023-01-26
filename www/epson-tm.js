@@ -17,7 +17,7 @@ const api = {
     },
 }
 
-const printerSeries = Object.freeze({
+const printerSeries = {
     m10: 0,
     m30: 1,
     P20: 2,
@@ -39,7 +39,7 @@ const printerSeries = Object.freeze({
     H6000: 18,
     T83III: 19,
     T100: 20,
-})
+}
 
 module.exports = {
     ...api,
