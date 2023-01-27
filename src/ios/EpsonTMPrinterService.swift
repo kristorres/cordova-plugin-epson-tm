@@ -23,6 +23,16 @@ final class EpsonTMPrinterService:
             return
         }
 
+        let lines = command.arguments[1] as! [String]
+        let text = lines
+            .joined(separator: "\n")
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+
+        if text.isEmpty {
+            sendError("The receipt is blank.", command: command)
+            return
+        }
+
         let printerSeries = command.arguments[0] as! Int32
 
         guard let printer = setUpPrinter(series: printerSeries) else {
@@ -41,13 +51,12 @@ final class EpsonTMPrinterService:
             printer.connect(printerTarget, timeout: Int(EPOS2_PARAM_DEFAULT))
         }
 
-        let lines = command.arguments[1] as! [String]
         let includeCustomerCopy = command.arguments[2] as? Bool ?? true
 
         printer.beginTransaction()
-        printCopy(from: printer, lines: lines)
+        printCopy(from: printer, text: text)
         if includeCustomerCopy {
-            printCopy(from: printer, lines: lines)
+            printCopy(from: printer, text: text)
         }
         printer.sendData(Int(EPOS2_PARAM_DEFAULT))
         printer.clearCommandBuffer()
@@ -101,10 +110,8 @@ final class EpsonTMPrinterService:
     /// Prints a receipt copy from the specified printer.
     ///
     /// - Parameter printer: The printer.
-    /// - Parameter lines:   The lines on the receipt.
-    private func printCopy(from printer: Epos2Printer, lines: [String]) {
-        let text = lines.joined(separator: "\n")
-
+    /// - Parameter text:    The text on the receipt.
+    private func printCopy(from printer: Epos2Printer, text: String) {
         printer.addText(text)
         printer.addFeedLine(2)
         printer.addCut(EPOS2_CUT_FEED.rawValue)
