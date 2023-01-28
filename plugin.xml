@@ -14,10 +14,17 @@
                 <param name="ios-package" value="EpsonTMPrinterService" />
             </feature>
         </config-file>
+        <config-file target="*-Info.plist" parent="UISupportedExternalAccessoryProtocols">
+            <array>
+                <string>com.epson.escpos</string>
+            </array>
+        </config-file>
         <framework src="ExternalAccessory.framework" />
         <framework src="libxml2.tbd" />
         <source-file src="src/ios/libepos2.a" framework="true" />
         <header-file src="src/ios/ePOS2.h" />
+        <header-file src="src/ios/ePOS2-Bridging-Header.h" />
+        <source-file src="src/ios/EpsonTMPrinterService.swift" />
         <dependency id="cordova-plugin-add-swift-support" version="2.0.2" />
     </platform>
 </plugin>

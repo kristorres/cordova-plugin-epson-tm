@@ -124,7 +124,7 @@ final class EpsonTMPrinterService:
     private func sendError(_ message: String, command: CDVInvokedUrlCommand) {
         let result = CDVPluginResult(
             status: CDVCommandStatus_ERROR,
-            messageAsString: message
+            messageAs: message
         )
 
         commandDelegate?.send(result, callbackId: command.callbackId)
@@ -136,7 +136,7 @@ final class EpsonTMPrinterService:
     private func sendSuccess(command: CDVInvokedUrlCommand) {
         let result = CDVPluginResult(
             status: CDVCommandStatus_OK,
-            messageAsBool: true
+            messageAs: true
         )
 
         commandDelegate?.send(result, callbackId: command.callbackId)
