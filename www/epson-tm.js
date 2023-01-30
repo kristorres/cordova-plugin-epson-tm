@@ -4,20 +4,20 @@ const service = "EpsonTMPrinterService"
 
 const api = {
     printReceipt: (props, success, error) => {
-        const {printerSeries, lines, includeCustomerCopy = false} = props
-        const args = [printerSeries, lines, includeCustomerCopy]
+        const {model, lines, includeCustomerCopy = false} = props
+        const args = [model, lines, includeCustomerCopy]
 
         exec(success, error, service, "printReceipt", args)
     },
-    startPrinterSearch: () => {
-        exec(null, null, service, "startPrinterSearch")
+    startPrinterSearch: (success) => {
+        exec(success, null, service, "startPrinterSearch")
     },
-    stopPrinterSearch: () => {
-        exec(null, null, service, "stopPrinterSearch")
+    stopPrinterSearch: (success) => {
+        exec(success, null, service, "stopPrinterSearch")
     },
 }
 
-const printerSeries = {
+const printerModels = {
     m10: 0,
     m30: 1,
     P20: 2,
@@ -41,7 +41,13 @@ const printerSeries = {
     T100: 20,
 }
 
+const errors = {
+    PRINTER_NOT_FOUND: 1,
+    BLANK_RECEIPT: 2,
+}
+
 module.exports = {
     ...api,
-    ...printerSeries,
+    ...printerModels,
+    Error: {...errors},
 }
