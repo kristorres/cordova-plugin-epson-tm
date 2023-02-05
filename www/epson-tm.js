@@ -9,11 +9,11 @@ const api = {
 
         exec(success, error, service, "printReceipt", args)
     },
-    startPrinterSearch: (success) => {
-        exec(success, null, service, "startPrinterSearch")
+    startPrinterSearch: (success, error) => {
+        exec(success, error, service, "startPrinterSearch")
     },
-    stopPrinterSearch: (success) => {
-        exec(success, null, service, "stopPrinterSearch")
+    stopPrinterSearch: (success, error) => {
+        exec(success, error, service, "stopPrinterSearch")
     },
 }
 
