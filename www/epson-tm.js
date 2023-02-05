@@ -41,17 +41,23 @@ const printerModels = {
     T100: 20,
 }
 
-const errors = {
-    CANNOT_START_PRINTER_SEARCH: 1,
-    CANNOT_STOP_PRINTER_SEARCH: 2,
-    PRINTER_NOT_FOUND: 3,
-    INVALID_PRINTER_MODEL: 4,
-    CANNOT_CONNECT_PRINTER: 5,
-    BLANK_RECEIPT: 6,
-}
+const errors = [
+    "CANNOT_START_PRINTER_SEARCH",
+    "CANNOT_STOP_PRINTER_SEARCH",
+    "PRINTER_NOT_FOUND",
+    "INVALID_PRINTER_MODEL",
+    "CANNOT_CONNECT_PRINTER",
+    "BLANK_RECEIPT",
+]
 
 module.exports = {
     ...api,
     ...printerModels,
-    Error: {...errors},
+    Error: errors.reduce(
+        (map, error) => ({
+            ...map,
+            [error]: error,
+        }),
+        {}
+    ),
 }

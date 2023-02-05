@@ -28,7 +28,6 @@
         <source-file src="src/ios/libepos2.a" framework="true" />
         <header-file src="src/ios/ePOS2.h" />
         <header-file src="src/ios/ePOS2-Bridging-Header.h" />
-        <source-file src="src/ios/EpsonTMError.swift" />
         <source-file src="src/ios/EpsonTMPrinterService.swift" />
         <dependency id="cordova-plugin-add-swift-support" version="2.0.2" />
     </platform>

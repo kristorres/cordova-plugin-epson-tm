@@ -10,11 +10,10 @@ final class EpsonTMPrinterService:
     /// The current printer.
     private var printer: Epos2Printer?
 
-    /// The target of the current printer.
+    /// The connection target of the current printer.
     private var printerTarget: String?
 
-    /// Indicates whether the service is currently searching for an Epson TM
-    /// printer.
+    /// Indicates whether the service is currently searching for a printer.
     private var isSearchingForPrinter = false
 
     // MARK: Public API
@@ -128,7 +127,7 @@ final class EpsonTMPrinterService:
     /// - Parameter model: The printer model.
     ///
     /// - Returns: An error if the method fails, or `nil` otherwise.
-    private func connectPrinter(_ model: Int32) -> EpsonTMError? {
+    private func connectPrinter(_ model: Int32) -> Error? {
         if printerTarget == nil {
             return .printerNotFound
         }
@@ -176,7 +175,7 @@ final class EpsonTMPrinterService:
     private func printReceipt(
         lines: [String],
         includeCustomerCopy: Bool
-    ) -> EpsonTMError? {
+    ) -> Error? {
         let text = lines
             .joined(separator: "\n")
             .trimmingCharacters(in: .whitespacesAndNewlines)
@@ -205,10 +204,7 @@ final class EpsonTMPrinterService:
     ///
     /// - Parameter error:   The error to be sent.
     /// - Parameter command: The invoked command from Cordova.
-    private func sendError(
-        _ error: EpsonTMError,
-        with command: CDVInvokedUrlCommand
-    ) {
+    private func sendError(_ error: Error, with command: CDVInvokedUrlCommand) {
         let result = CDVPluginResult(
             status: CDVCommandStatus_ERROR,
             messageAs: error.rawValue
@@ -227,5 +223,30 @@ final class EpsonTMPrinterService:
         )
 
         commandDelegate?.send(result, callbackId: command.callbackId)
+    }
+
+    // MARK: Errors
+
+    /// A possible error that can be returned from the service.
+    private enum Error: String, Swift.Error {
+
+        /// An error indicating the service cannot start searching for a
+        /// printer.
+        case cannotStartPrinterSearch = "CANNOT_START_PRINTER_SEARCH"
+
+        /// An error indicating the service cannot stop searching for a printer.
+        case cannotStopPrinterSearch = "CANNOT_STOP_PRINTER_SEARCH"
+
+        /// An error indicating a printer was not found by the service.
+        case printerNotFound = "PRINTER_NOT_FOUND"
+
+        /// An error indicating an invalid printer model.
+        case invalidPrinterModel = "INVALID_PRINTER_MODEL"
+
+        /// An error indicating the service cannot connect to a printer.
+        case cannotConnectPrinter = "CANNOT_CONNECT_PRINTER"
+
+        /// An error indicating a blank receipt.
+        case blankReceipt = "BLANK_RECEIPT"
     }
 }
