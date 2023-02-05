@@ -5,6 +5,10 @@
     <author>Kris Torres</author>
     <keywords>cordova, epson, epos, printer, receipt, ios</keywords>
     <license>MIT</license>
+    <engines>
+        <engine name="cordova" version=">=11.0.0" />
+        <engine name="cordova-ios" version=">=6.0.0" />
+    </engines>
     <js-module name="PrinterService" src="www/epson-tm.js">
         <clobbers target="EpsonTM" />
     </js-module>
@@ -24,6 +28,7 @@
         <source-file src="src/ios/libepos2.a" framework="true" />
         <header-file src="src/ios/ePOS2.h" />
         <header-file src="src/ios/ePOS2-Bridging-Header.h" />
+        <source-file src="src/ios/EpsonTMError.swift" />
         <source-file src="src/ios/EpsonTMPrinterService.swift" />
         <dependency id="cordova-plugin-add-swift-support" version="2.0.2" />
     </platform>
