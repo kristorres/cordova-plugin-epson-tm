@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<plugin id="cordova-plugin-epson-tm" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+<plugin id="cordova-plugin-epson-tm" version="0.1.1" xmlns="http://apache.org/cordova/ns/plugins/1.0">
     <name>Epson TM Printer Service</name>
     <description>A simple Cordova plugin for printing receipts from an Epson TM printer.</description>
     <author>Kris Torres</author>

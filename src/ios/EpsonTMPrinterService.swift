@@ -178,9 +178,9 @@ final class EpsonTMPrinterService:
     ) -> Error? {
         let text = lines
             .joined(separator: "\n")
-            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .trimmingCharacters(in: .newlines)
 
-        if text.isEmpty {
+        if text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             return .blankReceipt
         }
 

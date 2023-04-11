@@ -88,10 +88,10 @@ EpsonTM.printReceipt(
     {
         model: EpsonTM.m30,
         lines: [
-            "        BUSINESS NAME        ",
-            "       1234 Main Street      ",
-            "        City, ST 54321       ",
-            "        1(123)456-7890       ",
+            "        BUSINESS NAME         ",
+            "       1234 Main Street       ",
+            "        City, ST 54321        ",
+            "        1(123)456-7890        ",
             "------------------------------",
             "Lorem ipsum              $1.25",
             "Dolor sit amet           $7.99",

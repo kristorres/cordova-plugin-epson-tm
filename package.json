@@ -1,7 +1,7 @@
 {
   "name": "cordova-plugin-epson-tm",
   "description": "A simple Cordova plugin for printing receipts from an Epson TM printer.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "Kris Torres",
     "email": "torres-kris@outlook.com",
